@@ -31,14 +31,7 @@ cp %{SOURCE0} %{buildroot}%{_bindir}
 
 %define source_archive hello_world.py  # Define the source archive name
 
-%prep
-
-%build
-
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}%{_bindir}
 cp %{source_archive} %{buildroot}%{_bindir}  # Use the defined source archive
-
-%files
-%{_bindir}/hello_world.py
