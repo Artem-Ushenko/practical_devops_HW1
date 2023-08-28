@@ -64,6 +64,10 @@ jobs:
         sudo apt-get update
         sudo apt-get install rpm
 
+    - name: Set up rpmbuild directory
+      run: |
+        mkdir -p ~/rpmbuild/{BUILD,BUILDROOT,RPMS,SOURCES,SPECS,SRPMS}
+
     - name: Copy spec file
       run: cp hello_world.spec ~/rpmbuild/SPECS/
 
