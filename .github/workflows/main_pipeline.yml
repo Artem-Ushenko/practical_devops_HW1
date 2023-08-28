@@ -46,3 +46,10 @@ jobs:
     - name: Run unit tests
       run: |
         python3 -m unittest hello_world.py
+
+  build:
+    - name: build RPM package
+      id: rpm
+      uses: naveenrajm7/rpmbuild@master
+      with:
+        spec_file: "hello_world.spec"
