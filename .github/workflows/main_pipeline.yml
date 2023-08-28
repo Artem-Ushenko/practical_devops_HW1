@@ -47,11 +47,28 @@ jobs:
       run: |
         python3 -m unittest hello_world.py
 
-  build:
-    name: Create RPM Build
+  build_rpm:
+    name: Build RPM Package
     runs-on: ubuntu-latest
     steps:
-      - name: RPM Build
-        uses: wyTrivail/rpmbuild@v2.0.4    
-        with:
-            spec_file: "hello_world.spec"
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.7
+
+    - name: Install rpmbuild
+      run: |
+        sudo apt-get update
+        sudo apt-get install rpm
+
+    - name: Copy spec file
+      run: cp hello_world.spec ~/rpmbuild/SPECS/
+
+    - name: Copy source files
+      run: cp hello_world.py ~/rpmbuild/SOURCES/
+
+    - name: Build RPM package
+      run: rpmbuild -ba ~/rpmbuild/SPECS/hello_world.spec
