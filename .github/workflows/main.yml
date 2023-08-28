@@ -3,11 +3,11 @@ name: CI Pipeline
 on:
   pull_request:
     branches:
-      - main
+      - master
 
   push:
     branches:
-      - develop
+      - master
 
 jobs:
   lint:
@@ -20,7 +20,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: 3.x  # Choose your Python version
+        python-version: 3.7
         
     - name: Install dependencies
       run: |
@@ -41,7 +41,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: 3.x
+        python-version: 3.7
         
     - name: Run unit tests
       run: |
