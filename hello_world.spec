@@ -1,27 +1,30 @@
-Name:       hello-world
-Version:    1
-Release:    1
-Summary:    Most simple RPM package
-License:    FIXME
+%global __python /usr/bin/python3
+
+Name: hello_world
+Version: 1.0.0
+Release: 1%{?dist}
+Summary: A simple "Hello, World!" package
+
+License: MIT
+URL: https://github.com/your_username/hello_world
+
+BuildArch: noarch
+
+Requires: python3
 
 %description
-This is my first RPM package, which does nothing.
+This package contains a simple Python script that prints "Hello, World!"
 
 %prep
-# we have no source, so nothing here
 
 %build
-cat > hello-world.sh <<EOF
-#!/usr/bin/bash
-echo Hello world
-EOF
 
 %install
-mkdir -p %{buildroot}/usr/bin/
-install -m 755 hello-world.sh %{buildroot}/usr/bin/hello-world.sh
+rm -rf %{buildroot}
+mkdir -p %{buildroot}%{_bindir}
+cp %{SOURCE0} %{buildroot}%{_bindir}
 
 %files
-/usr/bin/hello-world.sh
+%{_bindir}/hello_world.py
 
 %changelog
-# let's skip this for now
