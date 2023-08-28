@@ -55,3 +55,7 @@ jobs:
         uses: naveenrajm7/rpmbuild@v1.0.0    
         with:
             spec_file: "hello_world.spec"
+
+      - name: Run RPM build
+        run: |
+          rpmbuild hello_world.spec
