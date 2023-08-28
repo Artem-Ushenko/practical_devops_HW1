@@ -22,9 +22,13 @@ This package contains a simple Python script that prints "Hello, World!"
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}%{_bindir}
-cp %{SOURCE0} %{buildroot}%{_bindir}
+cp %{_sourcedir}/hello_world.py %{buildroot}%{_bindir}
 
 %files
 %{_bindir}/hello_world.py
 
 %changelog
+
+%define _sourcedir %{_topdir}/SOURCES
+
+%define source_archive hello_world.py  # Define the source archive name
