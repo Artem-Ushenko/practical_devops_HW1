@@ -48,11 +48,10 @@ jobs:
         python3 -m unittest hello_world.py
 
   build:
-    name: Create RPM Release
+    name: Create RPM Build
     runs-on: ubuntu-latest
     steps:
-    - name: build RPM package
-      id: rpm_build
-      uses: naveenrajm7/rpmbuild@master
-      with:
-          spec_file: "hello_world.spec"
+      - name: RPM Build
+        uses: naveenrajm7/rpmbuild@v1.0.0    
+        with:
+            spec_file: "hello_world.spec"
