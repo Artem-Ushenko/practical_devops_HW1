@@ -28,10 +28,3 @@ cp %{SOURCE0} %{buildroot}%{_bindir}
 %{_bindir}/hello_world.py
 
 %changelog
-
-%define source_archive hello_world.py  # Define the source archive name
-
-%install
-rm -rf %{buildroot}
-mkdir -p %{buildroot}%{_bindir}
-cp %{source_archive} %{buildroot}%{_bindir}  # Use the defined source archive
