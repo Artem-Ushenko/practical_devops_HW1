@@ -52,10 +52,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: RPM Build
-        uses: jiro4989/build-rpm-action@v1    
+        uses: wyTrivail/rpmbuild@v2.0.4    
         with:
             spec_file: "hello_world.spec"
-
-      - name: Run RPM build
-        run: |
-          rpmbuild hello_world.spec
