@@ -71,6 +71,9 @@ jobs:
     - name: Copy spec file
       run: cp hello_world.spec ~/rpmbuild/SPECS/
 
+    - name: Copy spec file
+      run: cp hello_world.py ~/rpmbuild/SOURCES/
+
     - name: Build RPM package
       run: rpmbuild -ba ~/rpmbuild/SPECS/hello_world.spec
 
