@@ -79,3 +79,17 @@ jobs:
 
     - name: Build RPM package
       run: rpmbuild -ba ~/rpmbuild/SPECS/hello_world.spec
+
+  upload:
+    name: Upload Artifact
+    runs-on: ubuntu-latest
+    needs: [build_rpm]
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
+    - name: Upload RPM artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: rpm-package
+        path: ~/rpmbuild/RPMS/
