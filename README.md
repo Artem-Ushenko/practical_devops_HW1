@@ -1,4 +1,4 @@
-# Project name: Practical_devops_HW1 ![](https://github.com/Artem-Ushenko/practical_devops_HW1/actions/main_pipeline.yaml/badge.svg)
+# Project name: Practical_devops_HW1 ![](https://github.com/Artem-Ushenko/practical_devops_HW1/actions/workflows/main_pipeline.yaml/badge.svg)
 
 **Overview:**
 This project is a simple example of a Python application called "Hello World". It includes a basic Python script, unit tests, and a Continuous Integration (CI) pipeline to automate testing using GitHub Actions.
