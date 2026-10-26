@@ -44,3 +44,25 @@ Contributions to this project are welcome! If you find any issues or improvement
 **License:**
 This project is licensed under the [MIT License](LICENSE).
 ```
+
+---
+
+## Teleprompter app for Pixel (`teleprompter-app/`)
+
+Android app (Kotlin, Jetpack Compose, CameraX) that shows a scrolling prompter right next to
+the front camera while you record a video. Built for Pixel 10, works on Android 10+.
+
+**Two modes:**
+1. **"Записати відео з суфлером"** – in-app recorder. Front camera preview fills the screen, the
+   script scrolls in a semi-transparent panel at the top (just under the camera hole) so your eyes stay
+   close to the lens. Countdown before start, tap the text to pause, swipe to rewind manually,
+   change speed/font while recording. Videos (1080p, with sound) are saved to `Movies/Teleprompter`.
+2. **"Суфлер поверх камери Pixel"** – floating prompter window shown over other apps; the stock
+   Pixel Camera opens in video mode, so you keep its stabilization and quality. Requires the
+   "Display over other apps" permission. The overlay is not captured in the recorded video.
+
+Text can also be shared into the app from any other app (Share → Суфлер).
+
+**Build:** `cd teleprompter-app && ./gradlew assembleDebug` (needs Android SDK 35 and JDK 17), or
+download the `teleprompter-debug-apk` artifact from the *Android Teleprompter* GitHub Actions workflow
+and install it with `adb install app-debug.apk`.
